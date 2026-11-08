@@ -7,9 +7,9 @@ const EX = {
   crossover: ['Crossover (polia)', 'peito', 'w', [], 0, 'Braços em arco, foque em juntar o peito.', 2.5],
   flexao: ['Flexão de braço', 'peito', 'b', ['punho'], 'flexao_inc', 'Corpo em linha reta, peito perto do chão.'],
   flexao_inc: ['Flexão inclinada (mãos no banco)', 'peito', 'b', [], 0, 'Mãos elevadas, corpo reto.'],
-  flexao_diamante: ['Flexão diamante', 'braco', 'b', ['punho', 'ombro'], 'flexao', 'Mãos juntas, cotovelos rente ao corpo.'],
+  flexao_diamante: ['Flexão diamante', 'braco', 'b', ['punho', 'ombro', 'cotovelo'], 'flexao', 'Mãos juntas, cotovelos rente ao corpo.'],
   pike: ['Flexão pike (ombros)', 'ombro', 'b', ['ombro'], 'flexao_inc', 'Quadril alto em V, cabeça passa entre os braços.'],
-  mergulho_banco: ['Mergulho no banco', 'braco', 'b', ['ombro', 'punho'], 'triceps_polia', 'Costas rente ao banco, desça até 90°.'],
+  mergulho_banco: ['Mergulho no banco', 'braco', 'b', ['ombro', 'punho', 'cotovelo'], 'triceps_polia', 'Costas rente ao banco, desça até 90°.'],
   puxada: ['Puxada frontal', 'costas', 'w', [], 0, 'Puxe a barra ao peito, cotovelos para baixo.', 2.5],
   remada_baixa: ['Remada baixa (polia)', 'costas', 'w', [], 0, 'Peito aberto, junte as escápulas no final.', 2.5],
   remada_curv: ['Remada curvada (barra)', 'costas', 'w', ['lombar'], 'remada_apoiada', 'Tronco ~45°, coluna neutra, puxe até o umbigo.', 2.5],
@@ -24,25 +24,25 @@ const EX = {
   goblet: ['Agachamento goblet', 'perna', 'w', [], 0, 'Halter no peito, desça com tronco ereto.', 2],
   agachamento: ['Agachamento livre (barra)', 'perna', 'w', ['joelho', 'lombar'], 'leg_press', 'Joelhos acompanham os pés, coluna neutra.', 5],
   leg_press: ['Leg press', 'perna', 'w', ['joelho'], 'elev_pelvico', 'Lombar colada, não trave os joelhos.', 5],
-  afundo: ['Afundo / passada', 'perna', 'w', ['joelho'], 'elev_pelvico', 'Passo largo, tronco ereto, joelho alinhado.', 2],
-  stiff: ['Stiff (posterior)', 'perna', 'w', ['lombar'], 'mesa_flexora', 'Quadril para trás, coluna neutra.', 5],
+  afundo: ['Afundo / passada', 'perna', 'w', ['joelho', 'quadril'], 'elev_pelvico', 'Passo largo, tronco ereto, joelho alinhado.', 2],
+  stiff: ['Stiff (posterior)', 'perna', 'w', ['lombar', 'quadril'], 'mesa_flexora', 'Quadril para trás, coluna neutra.', 5],
   mesa_flexora: ['Mesa flexora', 'perna', 'w', [], 0, 'Controle a descida, quadril colado.', 2.5],
   cadeira_ext: ['Cadeira extensora', 'perna', 'w', ['joelho'], 'elev_pelvico', 'Estenda sem travar, desça devagar.', 2.5],
   elev_pelvico: ['Elevação pélvica', 'perna', 'w', [], 0, 'Queixo no peito, aperte o glúteo no topo.', 5],
-  panturrilha: ['Panturrilha em pé', 'perna', 'w', [], 0, 'Amplitude total, pause 1s no topo.', 5],
-  rosca_direta: ['Rosca direta', 'braco', 'w', ['punho'], 'rosca_martelo', 'Cotovelos fixos, sem balançar o tronco.', 2],
+  panturrilha: ['Panturrilha em pé', 'perna', 'w', ['tornozelo'], 'elev_pelvico', 'Amplitude total, pause 1s no topo.', 5],
+  rosca_direta: ['Rosca direta', 'braco', 'w', ['punho', 'cotovelo'], 'rosca_martelo', 'Cotovelos fixos, sem balançar o tronco.', 2],
   rosca_martelo: ['Rosca martelo', 'braco', 'w', [], 0, 'Pegada neutra, cotovelos colados.', 2],
   triceps_polia: ['Tríceps na polia', 'braco', 'w', [], 0, 'Cotovelos colados, estenda por completo.', 2.5],
-  triceps_testa: ['Tríceps testa', 'braco', 'w', ['punho'], 'triceps_polia', 'Cotovelos apontando para cima, controle.', 2],
+  triceps_testa: ['Tríceps testa', 'braco', 'w', ['punho', 'cotovelo'], 'triceps_polia', 'Cotovelos apontando para cima, controle.', 2],
   prancha: ['Prancha', 'core', 't', ['punho'], 'dead_bug', 'Corpo reto, abdômen contraído, respire.'],
   hollow: ['Hollow hold', 'core', 't', ['lombar'], 'dead_bug', 'Lombar no chão, braços e pernas estendidos.'],
   dead_bug: ['Dead bug', 'core', 'b', [], 0, 'Lombar no chão, braço e perna opostos.'],
   elev_pernas: ['Elevação de pernas', 'core', 'b', ['lombar'], 'dead_bug', 'Lombar colada, desça devagar.'],
-  agach_livre: ['Agachamento (peso do corpo)', 'perna', 'b', ['joelho'], 'ponte', 'Coxas paralelas, calcanhar no chão.'],
-  agach_bulg: ['Agachamento búlgaro', 'perna', 'b', ['joelho'], 'ponte', 'Pé de trás elevado, tronco ereto.'],
-  avanco_bw: ['Avanço (peso do corpo)', 'perna', 'b', ['joelho'], 'ponte', 'Passo largo, joelho de trás quase no chão.'],
+  agach_livre: ['Agachamento (peso do corpo)', 'perna', 'b', ['joelho', 'tornozelo'], 'ponte', 'Coxas paralelas, calcanhar no chão.'],
+  agach_bulg: ['Agachamento búlgaro', 'perna', 'b', ['joelho', 'quadril'], 'ponte', 'Pé de trás elevado, tronco ereto.'],
+  avanco_bw: ['Avanço (peso do corpo)', 'perna', 'b', ['joelho', 'tornozelo'], 'ponte', 'Passo largo, joelho de trás quase no chão.'],
   ponte: ['Ponte de glúteo', 'perna', 'b', [], 0, 'Aperte o glúteo no topo por 1s.'],
-  pant_bw: ['Panturrilha (peso do corpo)', 'perna', 'b', [], 0, 'Suba nas pontas, desça devagar.']
+  pant_bw: ['Panturrilha (peso do corpo)', 'perna', 'b', ['tornozelo'], 'ponte', 'Suba nas pontas, desça devagar.']
 };
 const GRP = { peito: 'Peito', costas: 'Costas', ombro: 'Ombros', perna: 'Pernas', braco: 'Braços', core: 'Core' };
 
@@ -87,3 +87,10 @@ const FAQ = [
   ['O que é RIR/RPE?', 'RIR = repetições que sobraram no tanque. RIR 2 ≈ você pararia com mais 2 reps possíveis. RPE 8 ≈ RIR 2. Maioria das séries deve ficar em RIR 1–3.'],
   ['Semana leve (deload)?', 'A cada 6 semanas o app reduz o volume (~40%) e a carga (~10%) por uma semana para recuperar. Você volta mais forte.']
 ];
+
+// Carga inicial estimada = peso corporal × fator (iniciante, por halter nos exercícios com halteres). Só uma estimativa conservadora.
+const START = { supino_reto: .35, supino_halt: .15, supino_inc_halt: .13, crucifixo_maq: .2, crossover: .1, puxada: .4, remada_baixa: .35, remada_curv: .3, remada_apoiada: .3, remada_unil: .15, face_pull: .15, desenv_halt: .1, elev_lat: .04, goblet: .2, agachamento: .5, leg_press: 1, afundo: .1, stiff: .35, mesa_flexora: .25, cadeira_ext: .3, elev_pelvico: .5, panturrilha: .5, rosca_direta: .2, rosca_martelo: .08, triceps_polia: .2, triceps_testa: .15 };
+// Versões de baixo impacto (joelho/tornozelo/quadril)
+const LOWIMP = { 'Agachamento com salto': 'Agachamento rápido sem salto', 'Burpee sem flexão': 'Agachamento + elevação de braços', 'Joelho alto': 'Marcha elevando os joelhos', 'Skater (lateral)': 'Passo lateral com toque no chão', 'Corrida parada': 'Marcha acelerada', 'Mountain climber': 'Mountain climber lento', 'Polichinelo': 'Polichinelo sem salto' };
+const OBJS = [['hipertrofia', '💪 Ganhar massa'], ['emagrecer', '🔥 Perder gordura'], ['forca', '🏋️ Ficar mais forte'], ['condicionamento', '❤️ Condicionamento'], ['corrida', '🏃 Melhorar na corrida'], ['natacao', '🏊 Melhorar na natação'], ['saude', '🧘 Saúde e mobilidade'], ['esporte', '⚽ Performance esportiva']];
+const FLAGS = [['ombro', 'Ombro'], ['cotovelo', 'Cotovelo'], ['punho', 'Punho'], ['lombar', 'Lombar'], ['quadril', 'Quadril'], ['joelho', 'Joelho'], ['tornozelo', 'Tornozelo']];
